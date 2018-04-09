@@ -20,6 +20,7 @@ public class LeagueScene extends Scene{
 	Button backButton;
 	Button deleteButton;
 	Button submitLeagueButton;
+	Button goToLeagueButton;
 	VBox vBox;
 	ListView<League> listView;
 	List<League> leagues;
@@ -33,7 +34,7 @@ public class LeagueScene extends Scene{
 	}
 	
 	private void addComponents() {
-		vBox.getChildren().addAll(label,backButton,listView,nameField,submitLeagueButton,deleteButton);
+		vBox.getChildren().addAll(label,backButton,listView,nameField,submitLeagueButton,deleteButton,goToLeagueButton);
 	}
 	
 	private void initializeComponents() {
@@ -43,10 +44,12 @@ public class LeagueScene extends Scene{
 		deleteButton = new Button("Delete League"); 
 		nameField = new TextField("name");
 		submitLeagueButton = new Button("Add league");
+		goToLeagueButton = new Button("Go to selected league");
 		
 		backButton.setOnAction(e -> Main.backToMain());
 		submitLeagueButton.setOnAction(e -> addLeague());
 		deleteButton.setOnAction(e -> deleteLeague());
+		goToLeagueButton.setOnAction(e -> goToLeague());
 		
 		refreshListView();
 	}
@@ -96,5 +99,10 @@ public class LeagueScene extends Scene{
 		finally {
 			Main.leagueSession.close();
 		}
+	}
+	private void goToLeague() {
+		Main.scene2 = new LeagueDetailsScene(new VBox(),800,600,listView.getSelectionModel().getSelectedItem());
+
+		Main.mainStage.setScene(Main.scene2);
 	}
 }

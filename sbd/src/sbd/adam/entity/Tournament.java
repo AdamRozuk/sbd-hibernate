@@ -47,6 +47,10 @@ public class Tournament {
 		public void setName(String name) {
 			this.name = name;
 		}
+		
+		public Tournament() {
+			
+		}
 
 		@Override
 		public String toString() {

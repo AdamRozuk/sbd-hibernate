@@ -19,6 +19,9 @@ public class Composition {
 	@Column(name="role")
 	private String role;
 
+	public Composition() {
+		
+	}
 	public Composition( int idTeam,int idPlayer, String role) {
 		super();
 		this.idPlayer = idPlayer;

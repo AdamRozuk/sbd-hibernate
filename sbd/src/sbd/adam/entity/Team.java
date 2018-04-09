@@ -40,7 +40,9 @@ public class Team {
 			this.idLeague = idLeague;
 			this.idCoach = idCoach;
 		}
-
+		public Team() {
+			
+		}
 		public int getId() {
 			return id;
 		}

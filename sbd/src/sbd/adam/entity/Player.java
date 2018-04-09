@@ -69,7 +69,7 @@ public class Player {
 
 		@Override
 		public String toString() {
-			return "Player [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+			return firstName + " " + lastName + " " + age ;
 		}
 
 }

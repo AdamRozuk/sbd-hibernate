@@ -56,7 +56,9 @@ public class Prizes {
 	public void setValue3(int value3) {
 		this.value3 = value3;
 	}
-
+	public Prizes() {
+		
+	}
 	public Prizes(int value1, int value2, int value3) {
 		super();
 		this.value1 = value1;

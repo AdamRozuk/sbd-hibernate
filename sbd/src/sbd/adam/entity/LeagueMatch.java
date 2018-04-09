@@ -22,9 +22,6 @@ public class LeagueMatch {
 		@Column(name="id_team2")
 		private int idTeam2;
 		
-		@Column(name="date")
-		private String date;
-		
 		@Column(name="result")
 		private int result;
 		
@@ -34,14 +31,17 @@ public class LeagueMatch {
 		@Column(name="id_league")
 		private int idLeague;
 
-		public LeagueMatch(int idTeam1, int idTeam2, String date, int result, String place, int idLeague) {
+		public LeagueMatch(int idTeam1, int idTeam2, int result, String place, int idLeague) {
 			super();
 			this.idTeam1 = idTeam1;
 			this.idTeam2 = idTeam2;
-			this.date = date;
 			this.result = result;
 			this.place = place;
 			this.idLeague = idLeague;
+		}
+
+		public LeagueMatch() {
+			
 		}
 
 		public int getId() {
@@ -62,14 +62,6 @@ public class LeagueMatch {
 
 		public void setIdTeam2(int idTeam2) {
 			this.idTeam2 = idTeam2;
-		}
-
-		public String getDate() {
-			return date;
-		}
-
-		public void setDate(String date) {
-			this.date = date;
 		}
 
 		public int getResult() {
@@ -98,8 +90,7 @@ public class LeagueMatch {
 
 		@Override
 		public String toString() {
-			return "League_match [id=" + id + ", idTeam1=" + idTeam1 + ", idTeam2=" + idTeam2 + ", date=" + date
-					+ ", result=" + result + ", place=" + place + ", idLeague=" + idLeague + "]";
+			return "League_match [id=" + id + ", idTeam1=" + idTeam1 + ", idTeam2=" + idTeam2 + ", result=" + result + ", place=" + place + ", idLeague=" + idLeague + "]";
 		}
 		
 		

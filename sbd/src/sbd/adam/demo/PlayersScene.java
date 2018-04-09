@@ -22,7 +22,7 @@ public class PlayersScene extends Scene{
 	List<Player> players;
 	TextField firstNameField;
 	TextField lastNameField;
-	TextField age;
+	TextField ageField;
 	
 	public PlayersScene(VBox vBox,int x,int y) {
 		super(vBox,x,y);
@@ -32,7 +32,7 @@ public class PlayersScene extends Scene{
 	}
 	
 	private void addComponents() {
-		vBox.getChildren().addAll(label,backButton,listView,firstNameField,lastNameField,submitPlayerButton,deleteButton,age);
+		vBox.getChildren().addAll(label,backButton,listView,firstNameField,lastNameField,submitPlayerButton,deleteButton,ageField);
 	}
 	
 	private void initializeComponents() {
@@ -43,7 +43,7 @@ public class PlayersScene extends Scene{
 		firstNameField = new TextField("firstname");
 		lastNameField = new TextField("lastname");
 		submitPlayerButton = new Button("Add player");
-		age = new TextField("9");
+		ageField = new TextField("9");
 
 		backButton.setOnAction(e -> Main.backToMain());
 		submitPlayerButton.setOnAction(e -> addPlayer());
@@ -77,9 +77,10 @@ public class PlayersScene extends Scene{
 	}
 	
 	private void addPlayer() {
-		if(firstNameField.getText() == null || firstNameField.getText().trim().isEmpty() || lastNameField.getText() == null || lastNameField.getText().trim().isEmpty())
+		if(firstNameField.getText() == null || firstNameField.getText().trim().isEmpty() || lastNameField.getText() == null || lastNameField.getText().trim().isEmpty() || Main.isInteger(ageField.getText())==false)
 			return;
-		Player player = new Player(firstNameField.getText(), lastNameField.getText(),666);
+
+		Player player = new Player(firstNameField.getText(), lastNameField.getText(),Integer.parseInt(ageField.getText()));
 		try {
 			Main.playerSession = Main.playerFactory.getCurrentSession();
 			Main.playerSession.beginTransaction();
@@ -88,7 +89,7 @@ public class PlayersScene extends Scene{
 			listView.getItems().add(player);
 			firstNameField.clear();
 			lastNameField.clear();
-			age.clear();
+			ageField.clear();
 		} 
 		finally {
 			Main.playerSession.close();

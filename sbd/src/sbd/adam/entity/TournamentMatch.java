@@ -21,9 +21,6 @@ public class TournamentMatch {
 	@Column(name="id_team2")
 	private int idTeam2;
 	
-	@Column(name="date")
-	private String date;
-	
 	@Column(name="result")
 	private int result;
 	
@@ -32,14 +29,13 @@ public class TournamentMatch {
 	
 	@Column(name="id_tournament")
 	private int idTournament;
-
-	public TournamentMatch(int idTeam1, int idTeam2, String date, int result, String place, int idTournament) {
+	public TournamentMatch() {
+		
+	}
+	public TournamentMatch(int idTeam1, int idTeam2,  int idTournament) {
 		super();
 		this.idTeam1 = idTeam1;
 		this.idTeam2 = idTeam2;
-		this.date = date;
-		this.result = result;
-		this.place = place;
 		this.idTournament = idTournament;
 	}
 
@@ -61,14 +57,6 @@ public class TournamentMatch {
 
 	public void setIdTeam2(int idTeam2) {
 		this.idTeam2 = idTeam2;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
 	}
 
 	public int getResult() {
@@ -97,8 +85,7 @@ public class TournamentMatch {
 
 	@Override
 	public String toString() {
-		return "TournamentMatch [id=" + id + ", idTeam1=" + idTeam1 + ", idTeam2=" + idTeam2 + ", date=" + date
-				+ ", result=" + result + ", place=" + place + ", idTournament=" + idTournament + "]";
+		return "TournamentMatch [id=" + id + ", idTeam1=" + idTeam1 + ", idTeam2=" + idTeam2 + ", result=" + result + ", place=" + place + ", idTournament=" + idTournament + "]";
 	}
 	
 	

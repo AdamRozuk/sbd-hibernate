@@ -21,7 +21,7 @@ public class League {
 
 		@Override
 		public String toString() {
-			return "League [id=" + id + ", name=" + name + "]";
+			return name;
 		}
 
 		public int getId() {
